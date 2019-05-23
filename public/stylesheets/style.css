@@ -1,8 +1,16 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+@font-face {
+  font-family: 'Flexo';
+  src: url('../font/Flexo/Flexo-Regular.otf');
 }
 
-a {
-  color: #00B7FF;
+* {
+  margin:0px;
+  padding:0px;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px;
+  font-family: 'Flexo', sans-serif;
 }
