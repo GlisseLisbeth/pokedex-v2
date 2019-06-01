@@ -7,7 +7,7 @@ const Pokemon = (event, update, name, number) => {
   const imgPoke = $('<img src="https://serebii.net/art/th/' + number + '.png"/>');
   const button = $('<div class="button"></div>');
   const icons = $('<div class="icons"></div>');
-  const pokeball = $('<a href="#modal1" class="icon pokebola"></a>');
+  const pokeball = $('<a href="#modal1" class="modal-trigger icon pokebola"></a>');
   const pokeheart = $('<a href="#" class="icon heart"></a>');
   const pokedata = $('<a href="#" class="icon data"></a>');
   const pokeName = $('<h6 class="bold center-align">' + name + '</h6>');
@@ -43,7 +43,6 @@ const Pokemon = (event, update, name, number) => {
               $('.debilidades').append(debility);
               debility.addClass(elements.name);
               debility.addClass('border-radius');
-              $('.modal').find('.pokebola').off();
             });
           })
           .fail((error) => {

@@ -1,6 +1,7 @@
 'use strict';
 
 const ModalContent = () => {
+  const modal1 = $('#modal1');
   const modalContent = $('<div class="modal-content container"></div>');
   const rowContent = $('<div class="row"></div>');
   const title = $('<h3 class="center-align" id="pokename">' + state.pokeData.name + '</h3>');
@@ -17,7 +18,7 @@ const ModalContent = () => {
 
   const colDescription = $('<div class="col s7"></div>');
   const description = $('<p class="col s12 medium-size-text marg-bot" id="description">' + state.pokeData.description + '</p>');
-  const data = $('<div class="col s12 celeste white-text pad-top-bot marg-bot border-radius"></div>');
+  const data = $('<div class="data-poke col s12 light-blue white-text pad-top-bot marg-bot border-radius"></div>');
   const type = $('<h5 class="col s12 medium-size-text marg-bot">Tipo:</h5>');
   const typeDiv = $('<div class="col s12 tipos"></div>');
   const debility = $('<h5 class="col s12 medium-size-text marg-bot">Debilidad:</h5>');
@@ -74,26 +75,36 @@ const ModalContent = () => {
   return modalContent;
 }
 
-const ModalInitial = (update) => {
+const ModalInitial = () => {
   const modal = $('<div id="modal1" class="modal"></div>');
-  const close = $('<a href="#!" class="modal-action modal-close icon close"></a>');
+  const close = $('<a href="#!" class="modal-close icon close"></a>');
 
   modal.append(close);
 
-  return modal.modal({
-           dismissible: true,
-           opacity: .5,
-           inDuration: 300,
-           outDuration: 200,
-           startingTop: '4%',
-           endingTop: '10%',
-           ready: function(modal, trigger) {},
+  modal.modal({
+    dismissible: true,
+    opacity: .5,
+    inDuration: 300,
+    outDuration: 200,
+    startingTop: '4%',
+    endingTop: '10%',
+    ready: function (modal, trigger) { },
 
-           complete: function() {
-             $('.modal-content').remove();
-             state.selectedPokemon = null;
-             state.pokeData = null;
-            }
-         }
-       );
+    complete: function () {
+      $('.modal-content').remove();
+      state.selectedPokemon = null;
+      state.pokeData.name = null;
+      state.pokedata.description = null;
+      state.pokeData.weight = null;
+      state.pokeData.height = null;
+      state.pokeData.sex = null;
+      state.pokeData.category = null;
+      state.pokeData.abilities = null;
+      state.pokeData.types = null;
+      state.pokeData.debility = null;
+      state.pokeData.doubleDamage = [];
+    }
+  });
+
+  return modal;
 }

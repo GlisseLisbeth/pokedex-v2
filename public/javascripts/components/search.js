@@ -15,7 +15,6 @@ const Search = (update) => {
   input.on("keyup", () => {
     let pokemonFound = filterByName(state.pokemons.pokemon_entries,input.val());
     const content = $('.row.content-poke');
-    console.log(content);
     reRender(content, pokemonFound, update);
   });
 

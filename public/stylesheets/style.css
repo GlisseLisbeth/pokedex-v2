@@ -103,12 +103,8 @@ body {
   right: 15px;
 }
 
-.celeste h6 {
+.data-poke h6 {
   margin: 0.5rem 0 0 0;
-  font-size: .9rem;
-}
-
-.celeste {
   font-size: .9rem;
 }
 
@@ -180,8 +176,7 @@ body {
   color: #ffffff;
 }
 
-.ice,
-.celeste {
+.ice {
   background-color: #30A7D7;
   color: #ffffff;
 }
@@ -202,19 +197,6 @@ body {
   background: linear-gradient(to bottom, #53a4cf 0%,#53a4cf 50%,#f16e57 50%,#f16e57 99%);
   color: #ffffff;
 }
-
-.gris-claro {
-  background-color: #F2F2F2;
-}
-
-.gris-text {
-  color: #646464;
-}
-
-.rojo {
-  color: #e84848;
-}
-
 
 .medium-size-text {
   font-size: 1.1rem;
@@ -251,7 +233,7 @@ body {
   max-width: 150px;
 }
 
-.modal .trapecio {
+.modal .button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -262,8 +244,8 @@ body {
     padding: 20px 0;
 }
 
-.tipos .s4,
-.debilidades .s4 {
+.types .s4,
+.debilities .s4 {
   width: 30% !important;
  margin-right: 7px;
 }
