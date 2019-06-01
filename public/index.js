@@ -3,6 +3,18 @@
 const state = {
   pokemons: null,
   selectedPokemon: null,
+  pokeData: {
+    name: null,
+    description: null, 
+    weight: null,
+    height: null,
+    sex: null,
+    category: null,
+    abilities: null,
+    types: null,
+    debility: null,
+    doubleDamage: [],
+  }
 }
 
 const render = (root) => {
@@ -10,6 +22,8 @@ const render = (root) => {
   const wrapper = $('<div class="wrapper"></div>');
   wrapper.append(Header(_=> render(root)));
   wrapper.append(Search(_=> render(root)));
+  wrapper.append(Container(_=> render(root)));
+  wrapper.append(ModalInitial(_ => render(root)));
   root.append(wrapper);
 }
 

@@ -2,33 +2,37 @@
 
 const Search = (update) => {
   const divSearch = $('<div class="search"></div>');
-  const container = $('<div class="header"></div>');
   const rowSearch = $('<div class="row"></div>');
   const formGroup = $('<div class="input-field col s12 m7 l7"></div>');
   const icon = $('<i class="fa fa-search col s1" aria-hidden="true"></i>');
   const input = $('<input type="text" class="input-poke col s12 m11" />');
 
-  divSearch.append(container);
-  container.append(rowSearch);
+  divSearch.append(rowSearch);
   rowSearch.append(formGroup);
   formGroup.append(icon);
   formGroup.append(input);
 
-  const grid = $('<div class="grid"></div>');
-  const content = $('<div class="row"></div>')
-  grid.append(content);
+  input.on("keyup", () => {
+    let pokemonFound = filterByName(state.pokemons.pokemon_entries,input.val());
+    const content = $('.row.content-poke');
+    console.log(content);
+    reRender(content, pokemonFound, update);
+  });
 
-  state.pokemons.pokemon_entries.map((element) => {
-    content.append(Pokemon(element, update, element.pokemon_species.name, element.entry_number));
-    return content;
-  })
-  divSearch.append(grid);
   return divSearch;
 }
 
 const reRender = ( content, pokemonFound, update ) => {
   content.empty();
   pokemonFound.forEach(element => {
-    content.append(Pokemon(element, update, element.pokemon_especies.name, element.entry_number));
+    content.append(Pokemon(element, update, element.pokemon_species.name, element.entry_number));
+  });
+}
+
+const filterByName = (pokemons,query) => {
+  return pokemons.filter((e) => {
+    if (e.pokemon_species.name.toLowerCase().indexOf(query.toLowerCase()) != -1) {
+      return e;
+    }
   });
 }
