@@ -20,9 +20,9 @@ const ModalContent = () => {
   const description = $('<p class="col s12 medium-size-text marg-bot" id="description">' + state.pokeData.description + '</p>');
   const data = $('<div class="data-poke col s12 light-blue white-text pad-top-bot marg-bot border-radius"></div>');
   const type = $('<h5 class="col s12 medium-size-text marg-bot">Tipo:</h5>');
-  const typeDiv = $('<div class="col s12 tipos"></div>');
+  const typeDiv = $('<div class="col s12 types"></div>');
   const debility = $('<h5 class="col s12 medium-size-text marg-bot">Debilidad:</h5>');
-  const debilityDiv = $('<div class="col s12 debilidades"></div>');
+  const debilityDiv = $('<div class="col s12 debilities"></div>');
 
   rowSubContent.append(colDescription);
   colDescription.append(description);
