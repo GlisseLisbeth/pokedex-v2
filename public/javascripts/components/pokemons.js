@@ -18,10 +18,14 @@ const Pokemon = (event, update, name, number, stateModal) => {
     state.selectedPokemon = number;
 
     $.getJSON('https://pokeapi.co/api/v2/pokemon-species/' + state.selectedPokemon, (data) => {
+      console.log(data);
       state.pokeData.name = data.name;
       state.pokeData.category = data.genera[4].genus;
       state.pokeData.sex = data.gender_rate;
-      state.pokeData.description = data.flavor_text_entries[3].flavor_text;
+      const findValue = data.flavor_text_entries.find( (element) => {
+        return element.language.name === 'es'
+      })
+      state.pokeData.description = findValue.flavor_text;
 
     })
     .done(() => {
@@ -44,7 +48,6 @@ const Pokemon = (event, update, name, number, stateModal) => {
               $('.debilities').append(debility);
               debility.addClass(elements.name);
               debility.addClass('border-radius');
-              $('.modal').find('.pokebola').off();
             });
           })
           .fail((error) => {

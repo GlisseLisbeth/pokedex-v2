@@ -1,6 +1,8 @@
 'use strict';
 
 const ModalContent = () => {
+  $('.preloader-wrapper').removeClass('active');
+  $('body').removeClass('overflow-scroll').addClass('overflow-hidden');
   const modalContent = $('<div class="modal-content container"></div>');
   const rowContent = $('<div class="row"></div>');
   const title = $('<h3 class="center-align" id="pokename">' + state.pokeData.name + '</h3>');
@@ -77,8 +79,9 @@ const ModalContent = () => {
 const ModalInitial = () => {
   const modal = $('<div id="modal1" class="modal"></div>');
   const close = $('<a href="#!" class="modal-close icon close"></a>');
-
+  const scrollBody = $('body');
   modal.append(close);
+  modal.append(LoadingModal());
 
   modal.modal({
     dismissible: true,
@@ -107,8 +110,57 @@ const ModalInitial = () => {
 
   close.on('click', (event) => {
     event.preventDefault();
-    $('.modal-content').remove();
-  });
+    modal.modal({
+      dismissible: true,
+      opacity: .5,
+      inDuration: 300,
+      outDuration: 200,
+      startingTop: '4%',
+      endingTop: '10%',
+      ready: function (modal, trigger) { },
   
+      complete: function () {
+        $('.modal-content').remove();
+        state.selectedPokemon = null;
+        state.pokeData.name = null;
+        state.pokedata.description = null;
+        state.pokeData.weight = null;
+        state.pokeData.height = null;
+        state.pokeData.sex = null;
+        state.pokeData.category = null;
+        state.pokeData.abilities = null;
+        state.pokeData.types = null;
+        state.pokeData.debility = null;
+        state.pokeData.doubleDamage = [];
+      }
+    });
+    scrollBody.removeClass('overflow-hidden').addClass('overflow-scroll');
+  });
+
   return modal;
+}
+
+const LoadingModal = () => {
+  const loaderWrapper = $('<div class="preloader-wrapper big active"></div>');
+  const spinner = $('<div class="spinner-layer spinner-blue-only"></div>');
+  const circleClipper = $('<div class="circle-clipper left"><div>');
+  const circle1 = $('<div class="circle"></div>');
+
+  loaderWrapper.append(spinner);
+  spinner.append(circleClipper);
+  circleClipper.append(circle1);
+
+  const gap = $('<div class="gap-patch"></div>');
+  const circle2 = $('<div class="circle"></div>');
+
+  spinner.append(gap);
+  gap.append(circle2);
+
+  const circleRight = $('<div class="circle-clipper right"></div>');
+  const circle3 = $('<div class="circle"></div>');
+
+  spinner.append(circleRight);
+  circleRight.append(circle3);
+
+  return loaderWrapper;
 }
