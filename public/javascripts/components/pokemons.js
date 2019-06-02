@@ -39,10 +39,11 @@ const Pokemon = (event, update, name, number) => {
           .done(() => {
             state.pokeData.debility.damage_relations.double_damage_from.forEach(function (elements) {
               state.pokeData.doubleDamage.push(elements.name);
-              const debility = $('<p class="col s4 center-align marg-bot">' + elements.name + '</p>');
-              $('.debilidades').append(debility);
+              const debility = $('<p class="col s4 center-align">' + elements.name + '</p>');
+              $('.debilities').append(debility);
               debility.addClass(elements.name);
               debility.addClass('border-radius');
+              $('.modal').find('.pokebola').off();
             });
           })
           .fail((error) => {

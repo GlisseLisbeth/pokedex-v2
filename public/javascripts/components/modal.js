@@ -17,11 +17,11 @@ const ModalContent = () => {
   colInfo.append(Pokemon(null, null, state.pokeData.name, state.selectedPokemon));
 
   const colDescription = $('<div class="col s7"></div>');
-  const description = $('<p class="col s12 medium-size-text marg-bot" id="description">' + state.pokeData.description + '</p>');
-  const data = $('<div class="data-poke col s12 light-blue white-text pad-top-bot marg-bot border-radius"></div>');
-  const type = $('<h5 class="col s12 medium-size-text marg-bot">Tipo:</h5>');
+  const description = $('<p class="col s12 medium-size-text flow-text" id="description">' + state.pokeData.description + '</p>');
+  const data = $('<div class="data-poke col s12 light-blue white-text border-radius"></div>');
+  const type = $('<h5 class="col s12 medium-size-text">Tipo:</h5>');
   const typeDiv = $('<div class="col s12 types"></div>');
-  const debility = $('<h5 class="col s12 medium-size-text marg-bot">Debilidad:</h5>');
+  const debility = $('<h5 class="col s12 medium-size-text">Debilidad:</h5>');
   const debilityDiv = $('<div class="col s12 debilities"></div>');
 
   rowSubContent.append(colDescription);
@@ -66,7 +66,7 @@ const ModalContent = () => {
   });
 
   state.pokeData.types.forEach(function (e) {
-    const typeData = $('<p class="col s4 center-align marg-bot">' + e.type.name + '</p>');
+    const typeData = $('<p class="col s4 center-align">' + e.type.name + '</p>');
     typeData.addClass(e.type.name);
     typeData.addClass('border-radius');
     typeDiv.append(typeData);
@@ -106,5 +106,10 @@ const ModalInitial = () => {
     }
   });
 
+  close.on('click', (event) => {
+    event.preventDefault();
+    $('.modal-content').remove();
+  });
+  
   return modal;
 }
