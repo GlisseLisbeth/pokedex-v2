@@ -28,8 +28,12 @@ const render = (root) => {
 }
 
 $( _ => {
+  const loader = $('<img src="https://media.giphy.com/media/GHBghsUxKPjva/giphy.gif" alt="pikachu loader" class="grid-loading">');
+  $('body').append(loader);
+
   $.getJSON('https://pokeapi.co/api/v2/pokedex/1/', (data) => {
     state.pokemons = data;
+    $('.grid-loading').hide();
   })
   .done(() => {
     const root = $('#root');
