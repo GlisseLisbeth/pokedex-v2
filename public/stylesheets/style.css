@@ -241,6 +241,11 @@ body {
   color: #ffffff;
 }
 
+.dark {
+	background-color: #705848;
+	border: 1px solid #49392F;
+}
+
 .modal {
   width: 70%;
   max-height: 520px;
