@@ -79,7 +79,7 @@ const ModalContent = () => {
 const ModalInitial = () => {
   const modal = $('<div id="modal1" class="modal"></div>');
   const close = $('<a href="#!" class="modal-close icon close"></a>');
-  const scrollBody = $('body');
+  
   modal.append(close);
   modal.append(LoadingModal());
 
@@ -95,46 +95,14 @@ const ModalInitial = () => {
     complete: function () {
       $('.modal-content').remove();
       state.selectedPokemon = null;
-      state.pokeData.name = null;
-      state.pokedata.description = null;
-      state.pokeData.weight = null;
-      state.pokeData.height = null;
-      state.pokeData.sex = null;
-      state.pokeData.category = null;
-      state.pokeData.abilities = null;
-      state.pokeData.types = null;
-      state.pokeData.debility = null;
-      state.pokeData.doubleDamage = [];
+      state.pokeData = null;
     }
   });
 
   close.on('click', (event) => {
     event.preventDefault();
-    modal.modal({
-      dismissible: true,
-      opacity: .5,
-      inDuration: 300,
-      outDuration: 200,
-      startingTop: '4%',
-      endingTop: '10%',
-      ready: function (modal, trigger) { },
-  
-      complete: function () {
-        $('.modal-content').remove();
-        state.selectedPokemon = null;
-        state.pokeData.name = null;
-        state.pokedata.description = null;
-        state.pokeData.weight = null;
-        state.pokeData.height = null;
-        state.pokeData.sex = null;
-        state.pokeData.category = null;
-        state.pokeData.abilities = null;
-        state.pokeData.types = null;
-        state.pokeData.debility = null;
-        state.pokeData.doubleDamage = [];
-      }
-    });
-    scrollBody.removeClass('overflow-hidden').addClass('overflow-scroll');
+    $('.modal-content').remove();
+    $('body').removeClass('overflow-hidden').addClass('overflow-scroll');
   });
 
   return modal;
