@@ -14,6 +14,10 @@ body {
   padding: 10px;
 }
 
+.mb10 {
+  margin-bottom: 10px !important;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -29,8 +33,8 @@ body {
 
 .img-poke img {
   position: absolute;
-  width: 60%;
-  height: 60%;
+  width: 40%;
+  height: 40%;
 }
 .fa-search {
   color: rgb(145, 145, 145);
@@ -263,12 +267,18 @@ body {
   .modal .col.s5 .col.m4 {
     width: 100%;
   }
+  .img-poke img {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+  }
 }
 
 @media (min-width: 992px) {
   .modal .col.s5 .col.l3 {
     width: 100%;
   }
+  
 }
 
 @media (min-width: 1200px) {

@@ -3,7 +3,7 @@
 const Search = (update) => {
   const divSearch = $('<div class="search"></div>');
   const rowSearch = $('<div class="row"></div>');
-  const formGroup = $('<div class="input-field col s12 m7 l7"></div>');
+  const formGroup = $('<div class="input-field col s10 m7 l7 xl7"></div>');
   const icon = $('<i class="fa fa-search col s1" aria-hidden="true"></i>');
   const input = $('<input type="text" class="input-poke col s12 m11" />');
 
