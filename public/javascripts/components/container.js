@@ -6,7 +6,7 @@ const Container = (update) => {
   grid.append(content);
 
   state.pokemons.pokemon_entries.map((element) => {
-    content.append(Pokemon(element, update, element.pokemon_species.name, element.entry_number));
+    content.append(Pokemon(element, update, element.pokemon_species.name, element.entry_number, false));
     return content;
   })
   return grid;

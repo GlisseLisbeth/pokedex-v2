@@ -1,7 +1,6 @@
 'use strict';
 
 const ModalContent = () => {
-  const modal1 = $('#modal1');
   const modalContent = $('<div class="modal-content container"></div>');
   const rowContent = $('<div class="row"></div>');
   const title = $('<h3 class="center-align" id="pokename">' + state.pokeData.name + '</h3>');
@@ -10,13 +9,13 @@ const ModalContent = () => {
   rowContent.append(title);
 
   const rowSubContent = $('<div class="row"></div>');
-  const colInfo = $('<div class="col s5 pokemon"></div>');
+  const colInfo = $('<div class="col s12 m5 l5 xl5 pokemon"></div>');
 
   modalContent.append(rowSubContent);
   rowSubContent.append(colInfo);
-  colInfo.append(Pokemon(null, null, state.pokeData.name, state.selectedPokemon));
+  colInfo.append(Pokemon(null, null, state.pokeData.name, state.selectedPokemon, true));
 
-  const colDescription = $('<div class="col s7"></div>');
+  const colDescription = $('<div class="col s12 m7 l7 xl7"></div>');
   const description = $('<p class="col s12 medium-size-text" id="description">' + state.pokeData.description + '</p>');
   const data = $('<div class="data-poke col s12 light-blue white-text border-radius"></div>');
   const type = $('<h5 class="col s12 medium-size-text">Tipo:</h5>');
@@ -66,7 +65,7 @@ const ModalContent = () => {
   });
 
   state.pokeData.types.forEach(function (e) {
-    const typeData = $('<p class="col s4  mb10 center-align">' + e.type.name + '</p>');
+    const typeData = $('<p class="col s12 m5 l3 xl3  mb10 mr10 center-align">' + e.type.name + '</p>');
     typeData.addClass(e.type.name);
     typeData.addClass('border-radius');
     typeDiv.append(typeData);

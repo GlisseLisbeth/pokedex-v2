@@ -1,7 +1,8 @@
 'use strict';
 
-const Pokemon = (event, update, name, number) => {
+const Pokemon = (event, update, name, number, stateModal) => {
   const colPokemon = $('<div class ="col s12 m4 l3 xl2"></div>');
+  const colPokemonModal = $('<div class ="col s12"></div>');
   const cardPoke = $('<div class="card-poke text-gris grey lighten-4"></div>');
   const imgPokeCont = $('<div class="img-poke"></div>');
   const imgPoke = $('<img src="https://serebii.net/art/th/' + number + '.png"/>');
@@ -39,7 +40,7 @@ const Pokemon = (event, update, name, number) => {
           .done(() => {
             state.pokeData.debility.damage_relations.double_damage_from.forEach(function (elements) {
               state.pokeData.doubleDamage.push(elements.name);
-              const debility = $('<p class="col s4 mb10 center-align">' + elements.name + '</p>');
+              const debility = $('<p class="col s12 m5 l3 xl3  mb10 mr10 center-align">' + elements.name + '</p>');
               $('.debilities').append(debility);
               debility.addClass(elements.name);
               debility.addClass('border-radius');
@@ -61,15 +62,21 @@ const Pokemon = (event, update, name, number) => {
     });
   });
 
-  colPokemon.append(cardPoke);
   cardPoke.append(imgPokeCont);
-  cardPoke.append(button)
   imgPokeCont.append(imgPoke);
-  button.append(icons);
-  icons.append(pokeball);
-  icons.append(pokeheart);
-  icons.append(pokedata);
-  button.append(pokeName);
-
-  return colPokemon;
+  
+  return ( stateModal === true ) ?  (
+      colPokemonModal.append(cardPoke),
+      colPokemonModal
+    ) 
+    : 
+    (
+      icons.append(pokeball),
+      icons.append(pokeheart),
+      icons.append(pokedata),
+      button.append(icons),
+      button.append(pokeName),
+      cardPoke.append(button),
+      colPokemon.append(cardPoke),
+      colPokemon)
 }

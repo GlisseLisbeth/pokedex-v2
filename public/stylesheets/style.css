@@ -18,13 +18,24 @@ body {
   margin-bottom: 10px !important;
 }
 
+.mr10 {
+  margin-right: 10px !important;
+}
 .bold {
   font-weight: bold;
 }
 
+.border-radius {
+  border-radius: 5px;
+}
+
+.medium-size-text {
+  font-size: 1.1rem;
+}
+
 .img-poke {
   width: 100%;
-  height: 75%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +47,7 @@ body {
   width: 40%;
   height: 40%;
 }
+
 .fa-search {
   color: rgb(145, 145, 145);
   transform: translateY(70%);
@@ -69,10 +81,24 @@ body {
 }
 
 .grid .card-poke {
+  width: 100%;
   height: 230px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+}
+
+.modal .card-poke {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+#description {
+  margin: 10px 0;
+  text-align: justify;
 }
 
 .icon {
@@ -109,7 +135,12 @@ body {
 
 .data-poke h6 {
   margin: 0.5rem 0 0 0;
-  font-size: .9rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.modal h5 {
+  margin: 0.5rem 0 0 0 !important;
 }
 
 .poison {
@@ -202,10 +233,6 @@ body {
   color: #ffffff;
 }
 
-.medium-size-text {
-  font-size: 1.1rem;
-}
-
 .modal {
   width: 70%;
   max-height: 520px;
@@ -259,8 +286,9 @@ body {
   margin-right: 3px;
 }
 
-.border-radius {
-  border-radius: 5px;
+#pokename {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 @media (min-width: 601px) {
